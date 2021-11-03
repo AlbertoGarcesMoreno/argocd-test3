@@ -4,7 +4,7 @@ kind: Kustomization
 bases:
   - ../base
 
-namespace: test-kustomize-pre
+# namespace: test-kustomize-pre
 
 # commonLabels:
 #   version: "01"

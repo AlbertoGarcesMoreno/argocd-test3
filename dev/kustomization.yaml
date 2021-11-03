@@ -4,7 +4,7 @@ kind: Kustomization
 bases:
   - ../base
 
-namespace: test-kustomize-dev
+# namespace: test-kustomize-dev
 
 # commonLabels:
 #   version: "01"
