@@ -1,0 +1,20 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+resources:
+  - resources.yaml
+
+configMapGenerator:
+  - name: common-configmap-1
+    files:
+      - application.properties
+    literals:
+      - env_var_common=ddd_common
+
+generatorOptions:
+  disableNameSuffixHash: true
+  # this labels and annotations will be added to the configMaps/secrets generated
+  labels:
+    mylabel: label-value
+  annotations:
+    myannotation: annotation-value

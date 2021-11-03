@@ -1,0 +1,44 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+
+bases:
+  - ../base
+
+namespace: test-kustomize-dev
+
+# commonLabels:
+#   version: "01"
+
+# commonAnnotations:
+#   anotacion: aaa
+
+# namePrefix: dev-
+
+# nameSuffix: "-001"
+
+configMapGenerator:
+  - name: example-configmap-1
+    files:
+      - application.properties
+    envs:
+      - dev.properties
+    literals:
+      - env_var_3=ccc_dev
+
+secretGenerator:
+  - name: example-secret-1
+    files:
+      - application.secret.properties
+    envs:
+      - dev.secret.properties
+    literals:
+      - username2=admin_dev2
+      - password2=secretPass_dev_2
+
+generatorOptions:
+  disableNameSuffixHash: true
+  # this labels and annotations will be added to the configMaps/secrets generated
+  labels:
+    mylabel: label-value
+  annotations:
+    myannotation: annotation-value
