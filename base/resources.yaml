@@ -67,6 +67,7 @@ spec:
         - name: common-volume
           configMap:
             name: common-configmap-1
+            
 ---
 apiVersion: v1
 kind: Service
